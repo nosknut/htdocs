@@ -1,0 +1,44 @@
+body{
+	background-color: #242424;
+}
+
+button {
+	width: 120px;
+	height: 120px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+    border-radius: 20px;
+    font-size: 30px;
+}
+
+#on{
+	background-color: green;
+}
+
+#off{
+	background-color: red;
+}
+
+#unknown{
+	visibility: hidden;
+}
+
+.nodstop_btn{
+	width: 380px;
+}
+
+#pwd_box{
+	width: 380px;
+    height: 60px;
+}
+
+input {
+    border-radius: 20px;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+a{
+    font-size: 30px;
+}

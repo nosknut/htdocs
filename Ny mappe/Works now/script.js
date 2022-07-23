@@ -1,0 +1,46 @@
+var $server = "35.204.206.85";
+//$server = "localhost:1234";
+var $sqlAddr = "35.187.40.176";
+
+$(document).ready(function () {
+	updateButtonStates();
+});
+
+function setPort(port, state) {
+    if (checkPwd()) {
+		$.get(("http://35.204.206.85/transmit.php?server=35.187.40.176&user=nosk&password=1234&query=UPDATE%20Traverskran.Traverskran%20SET%20Status=" + state + "%20WHERE%20Utgang=" + port), function () {//Set db to oposite state
+			updateButtonStates();
+		});
+	}   
+	else {
+		alert("passcode ...");
+	}
+}
+
+function togglePort(port) {
+	if (checkPwd()) {
+		$.get("http://" + $server + "/transmit.php?server=" + $sqlAddr + "&user=nosk&password=1234&query=Select+*+FROM+Traverskran.Traverskran", function (data) {//Get state
+			var $states = JSON.parse(data);
+			$.get(("http://" + $server + "/transmit.php?server=" + $sqlAddr + "&user=nosk&password=1234&query=UPDATE%20Traverskran.Traverskran%20SET%20Status=" + (!($states[port] == 1)) + "%20WHERE%20Utgang=" + port), function () {//Set db to oposite state
+				updateButtonStates();
+			});
+		});
+	}   
+	else {
+		alert("passcode ...");
+	}
+}
+
+function updateButtonStates() {
+	$.get("http://" + $server + "/transmit.php?server=" + $sqlAddr + "&user=nosk&password=1234&query=Select+*+FROM+Traverskran.Traverskran", function (data) {//Get state
+		var $states = JSON.parse(data);
+		for (var button = 0; button < 9; button++) {
+			$("button[name = " + button + "]").attr('id', (($states[button] == 1) ? "on" : "off"));//Alter the id of buttons named 0-9 to 'on' or 'off' based on retreived JSON
+		}
+	});
+}
+
+function checkPwd() {
+	var $password = "traverskran"
+    return ($("#pwd_box").val() == $password);
+}

@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="script.js"></script>
+		<title>Traverskran - Hold</title>
+    </head>
+    <body>
+
+        <input type="password" id="pwd_box" onkeyup="updateButtonStates()"/>
+        <br />
+        <button name="0" class="nodstop_btn" id="unknown" onmousedown="setPort(this.name, true)" onmouseup="setPort(this.name, false)">NODSTOPP (0)</button>
+        <br/>
+        <button name="updateButton" id="update" onclick="updateButtonStates()">Refresh</button>
+        <button name="1" id="unknown" onmousedown="setPort(this.name, true)" onmouseup="setPort(this.name, false)">1</button>
+        <button name="2" id="unknown" onmousedown="setPort(this.name, true)" onmouseup="setPort(this.name, false)">2</button>
+        <br />
+        <button name="3" id="unknown" onmousedown="setPort(this.name, true)" onmouseup="setPort(this.name, false)">3</button>
+        <button name="4" id="unknown" onmousedown="setPort(this.name, true)" onmouseup="setPort(this.name, false)">4</button>
+        <button name="5" id="unknown" onmousedown="setPort(this.name, true)" onmouseup="setPort(this.name, false)">5</button>
+        <br />
+        <button name="6" id="unknown" onmousedown="setPort(this.name, true)" onmouseup="setPort(this.name, false)">6</button>
+        <button name="7" id="unknown" onmousedown="setPort(this.name, true)" onmouseup="setPort(this.name, false)">7</button>
+        <button name="8" id="unknown" onmousedown="setPort(this.name, true)" onmouseup="setPort(this.name, false)">8</button>
+        <br />
+		<br />
+		<a href="/">Toggle</a>
+    </body>
+</html>
